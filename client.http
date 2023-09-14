@@ -40,5 +40,5 @@ Content-Type: application/json
 {
   "videoId": "0de2f7de-cdf9-4a33-8fb7-120dfbf618d4",
   "temperature": 0.5,
-  "template": "Generate a gist of the video transcription: '''{transcription}'''"
+  "prompt": "Generate a gist of the video transcription: '''{transcription}'''"
 }

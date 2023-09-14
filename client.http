@@ -1,0 +1,44 @@
+@baseUrl = http://localhost:3333
+@videoId = {{upload_videos.response.body.video.id}}
+
+# @name get_prompts
+GET {{baseUrl}}/prompts
+
+###
+
+# @name upload_videos
+POST {{baseUrl}}/videos
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="text"
+
+title
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="example.mp3"
+Content-Type: audio/mpeg
+
+< ./example.mp3
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+### 
+
+# @name create_transcription
+POST {{baseUrl}}/videos/{{videoId}}/transcription
+Content-Type: application/json
+
+{
+  "prompt": "danilo, flow, podcast, igor, advogado"
+}
+
+###
+
+# @name generate_ai_completion
+POST {{baseUrl}}/ai/complete
+Content-Type: application/json
+
+{
+  "videoId": "0de2f7de-cdf9-4a33-8fb7-120dfbf618d4",
+  "temperature": 0.5,
+  "prompt": "Generate a gist of the video transcription: '''{transcription}'''"
+}

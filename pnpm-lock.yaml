@@ -21,8 +21,8 @@ dependencies:
     specifier: ^4.23.0
     version: 4.23.0
   openai:
-    specifier: ^4.6.0
-    version: 4.6.0
+    specifier: ^4.20.0
+    version: 4.20.0
   zod:
     specifier: ^3.22.2
     version: 3.22.2
@@ -3109,8 +3109,8 @@ packages:
       - encoding
     dev: false
 
-  /openai@4.6.0:
-    resolution: {integrity: sha512-LuONkTgoe4D172raQCv+eEK5OdLGnY/M4JrUz/pxRGevZwqDqy3xhBbCeWX8QLCbFcnITYsu/VBJXZJ0rDAMpA==}
+  /openai@4.20.0:
+    resolution: {integrity: sha512-VbAYerNZFfIIeESS+OL9vgDkK8Mnri55n+jN0UN/HZeuM0ghGh6nDN6UGRZxslNgyJ7XmY/Ca9DO4YYyvrszGA==}
     hasBin: true
     dependencies:
       '@types/node': 18.17.15
@@ -3121,6 +3121,7 @@ packages:
       form-data-encoder: 1.7.2
       formdata-node: 4.4.1
       node-fetch: 2.7.0
+      web-streams-polyfill: 3.2.1
     transitivePeerDependencies:
       - encoding
     dev: false
@@ -3905,6 +3906,11 @@ packages:
       '@vue/runtime-dom': 3.3.4
       '@vue/server-renderer': 3.3.4(vue@3.3.4)
       '@vue/shared': 3.3.4
+    dev: false
+
+  /web-streams-polyfill@3.2.1:
+    resolution: {integrity: sha512-e0MO3wdXWKrLbL0DgGnUV7WHVuw9OUvL4hjgnPkIeEvESk74gAITi5G606JtZPp39cd8HA9VQzCIvA49LpPN5Q==}
+    engines: {node: '>= 8'}
     dev: false
 
   /web-streams-polyfill@4.0.0-beta.3:

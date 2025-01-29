@@ -70,7 +70,6 @@ jobs:
 
       - name: Run Migrations
         run: npm run migrate:prod
-        working-directory: packages/db
         env:
           DATABASE_URL: ${{ steps.create_neon_branch.outputs.db_url_with_pooler }}
 

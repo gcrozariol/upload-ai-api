@@ -47,9 +47,9 @@ jobs:
           api_key: ${{ secrets.NEON_API_KEY }}
 
       - name: Run Migrations
-        run: npx prisma migrate deploy --preview-feature
+        run: npx prisma migrate deploy
         env:
-          DATABASE_URL: "${{ steps.create_neon_branch.outputs.db_url_with_pooler }}"
+          DATABASE_URL: ${{ steps.create_neon_branch.outputs.db_url_with_pooler }}
 
       - name: Post Schema Diff Comment to PR
         uses: neondatabase/schema-diff-action@v1

@@ -16,6 +16,28 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      migrations: ${{ steps.changes.outputs.migrations }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            migrations:
+              - 'packages/db/prisma/migrations/**'
+
+  validate-migrations:
+    needs: changes
+    if: needs.changes.outputs.migrations == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
   setup:
     name: Setup
     outputs:
@@ -47,7 +69,8 @@ jobs:
           api_key: ${{ secrets.NEON_API_KEY }}
 
       - name: Run Migrations
-        run: npm run db:migrate
+        run: npm run migrate:prod
+        working-directory: packages/db
         env:
           DATABASE_URL: ${{ steps.create_neon_branch.outputs.db_url_with_pooler }}
 

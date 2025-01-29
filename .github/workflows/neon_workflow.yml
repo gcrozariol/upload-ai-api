@@ -48,9 +48,9 @@ jobs:
         run: npm run db:migrate
         env:
           # to use pooled connection
-          DATABASE_URL: "${{ steps.create_neon_branch.outputs.db_url_with_pooler }}"
+          # DATABASE_URL: "${{ steps.create_neon_branch.outputs.db_url_with_pooler }}"
           # OR to use unpooled connection
-          # DATABASE_URL: "${{ steps.create_neon_branch.outputs.db_url }}"
+          DATABASE_URL: "${{ steps.create_neon_branch.outputs.db_url }}"
 
       - name: Post Schema Diff Comment to PR
         uses: neondatabase/schema-diff-action@v1

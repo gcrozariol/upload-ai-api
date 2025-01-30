@@ -129,6 +129,6 @@ jobs:
       
       - name: Apply migrations to production
         if: github.event.pull_request.merged == true
-        run: pnpm migrate:prod && pnpm seed
+        run: pnpm migrate:prod && npx prisma db seed
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}

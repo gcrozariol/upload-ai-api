@@ -111,14 +111,24 @@ jobs:
           api_key: ${{ secrets.NEON_API_KEY }}
 
       - name: Checkout
-        if: github.event.pull_request.merged == true
         uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
       
       - name: Apply migrations to production
         if: github.event.pull_request.merged == true
-        run: |
-          npm install
-          npm run db:generate
-          npm run db:migrate
+        run: pnpm migrate:prod
         env:
           DATABASE_URL: '${{ secrets.DATABASE_URL }}'

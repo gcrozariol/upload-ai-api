@@ -11,8 +11,8 @@
     "start": "node dist/server.js",
     "build": "tsup src"
   },
-  "prisma": { 
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts" 
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +28,7 @@
     "eslint-config-standard-with-typescript": "^39.0.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0",
+    "ts-node": "^10.9.2",
     "tsup": "^8.3.6",
     "tsx": "^3.12.9",
     "typescript": "^5.2.2"

@@ -29,7 +29,7 @@ export async function generateAICompletionRoute(app: FastifyInstance) {
     const promptMessage = prompt.replace('{transcription}', video.transcription)
 
     const response = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo-16k',
+      model: 'gpt-3.5-turbo',
       temperature,
       messages: [
         {

@@ -18,7 +18,7 @@
   "license": "ISC",
   "devDependencies": {
     "@prisma/client": "^6.3.0",
-    "@rocketseat/eslint-config": "^2.1.0",
+    "@rocketseat/eslint-config": "^2.2.2",
     "@types/node": "^20.6.0",
     "@types/ws": "^8.5.14",
     "@typescript-eslint/eslint-plugin": "^6.4.0",

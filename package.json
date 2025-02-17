@@ -37,7 +37,7 @@
     "@fastify/multipart": "^7.7.3",
     "@neondatabase/serverless": "^0.10.4",
     "@prisma/adapter-neon": "^6.3.0",
-    "ai": "^2.2.12",
+    "ai": "^4.1.41",
     "fastify": "^4.23.0",
     "openai": "^4.6.0",
     "prisma": "^6.3.0",
